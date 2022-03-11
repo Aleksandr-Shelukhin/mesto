@@ -1,0 +1,12 @@
+.header {
+  padding: 45px 0 40px;
+
+  border-bottom: solid 1px var(--color-dark-grey);
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    padding: 28px 0 32px;
+
+  }
+}
