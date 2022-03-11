@@ -10,6 +10,16 @@
 </head>
 
 <body>
+  <!-- SVG sprites START-->
+    <svg style="display: none;">
+      <symbol id="heart" viewBox="0 0 22.952 20.366">
+        <g>
+          <path d="M508.966-707.343s2.605-2.635,5.487-2.658,5.555,1.529,5.487,5.487S508.966-690.8,508.966-690.8s-11.129-9.329-10.974-13.718,2.8-5.464,5.487-5.487S508.966-707.343,508.966-707.343Z" transform="translate(-497.49 710.502)" stroke="#000" stroke-width="1"/>
+        </g>
+      </symbol>
+    </svg>
+  <!-- SVG sprites END-->
+
   <!-- page START -->
   <div class="page">
     <!-- header START -->
@@ -22,20 +32,93 @@
     <main class="content">
       <div class="container">
 
-      <!-- profile START -->
-      <section class="profile">
-        <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка пользователя">
-        <div class="profile__info-wrapper">
-          <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <p class="profile__subtitle">Исследователь океана</p>
+        <!-- profile START -->
+        <div class="profile">
+          <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка пользователя">
+          <div class="profile__info-wrapper">
+            <div class="profile__info">
+              <h1 class="profile__title">Жак-Ив Кусто</h1>
+              <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <div class="profile__edit-button transition-on-hover"></div>
           </div>
-          <div class="profile__edit-button transition-on-hover"></div>
+          <div class="profile__add-button transition-on-hover"></div>
         </div>
-        <div class="profile__add-button transition-on-hover"></div>
-      </section>
-      <!-- profile END -->
-      
+        <!-- profile END -->
+
+        <!-- elements START -->
+        <ul class="elements">
+
+          <!-- element 1 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-elbrus.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Эльбрус</h2>
+              <svg class="element__icon transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+          <!-- element 2 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-ekaterinburg.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Екатеринбург</h2>
+              <svg class="element__icon element__icon_active transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+          <!-- element 3 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-kolomna.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Коломна</h2>
+              <svg class="element__icon transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+            <!-- element 4 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-moskow.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Москва</h2>
+              <svg class="element__icon transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+          <!-- element 5 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-piter.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Санкт-Петербуывывывыврг</h2>
+              <svg class="element__icon transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+          <!-- element 6 -->
+          <li class="element">
+            <img class="element__image" src="./images/elements-image-vladivostok.jpg" alt="Фотография места">
+            <div class="element__footer">
+              <h2 class="element__title">Владивосток</h2>
+              <svg class="element__icon transition-on-hover">
+                <use xlink:href="#heart"></use>
+              </svg>
+            </div>
+          </li>
+
+
+        </ul>
+        <!-- elements END -->
+
       </div>
     </main>
     <!-- main END -->

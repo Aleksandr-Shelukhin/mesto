@@ -11,13 +11,20 @@
     margin: 0;
   }
 }
+
 @media screen and (max-width: 540px) {
   .profile__info-wrapper{
     margin-top: 26px;
     margin-right: 13px;
 
     width: 100%;
-    
+
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__info-wrapper{
     justify-content: right;
   }
 }

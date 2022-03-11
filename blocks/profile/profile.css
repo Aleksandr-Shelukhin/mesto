@@ -16,6 +16,9 @@
 
 @media screen and (max-width: 540px) {
   .profile{
+    margin-bottom: 0;
+    
     justify-content: center;
   }
 }
+
