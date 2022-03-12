@@ -2,7 +2,8 @@
 
   /* Colors */
   --color-black: #000;
-  --color-dark-grey: rgba(84, 84, 84, .7);
+  --color-grey: #545454;
+  --color-grey-opacity: rgba(84, 84, 84, .7);
   --color-white: #fff;
 
   /* borders */
