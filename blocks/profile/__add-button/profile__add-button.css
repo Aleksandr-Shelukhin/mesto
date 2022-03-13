@@ -3,11 +3,14 @@
   width: 150px;
   height: 50px;
 
+  background-color: transparent;
+
   border: solid 1px var(--color-white);
 
   position: relative;
 
   cursor: pointer;
+  outline: none;
 }
 
 .profile__add-button::after{

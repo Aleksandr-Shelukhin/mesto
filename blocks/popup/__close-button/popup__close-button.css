@@ -7,11 +7,16 @@
   top: -40px;
   right: -40px;
 
+  border: none;
+
+  background-color: transparent;
   background-image: url(../../../images/close-btn-Icon.svg);
   background-position: center;
   background-size: cover;
 
   cursor: pointer;
+
+  outline: none;
 }
 
 @media screen and (max-width: 540px) {
