@@ -12,8 +12,6 @@
   -ms-flex-direction: column;
   flex-direction: column;
 
-  background-color: var(--color-black);
-
 
   -webkit-box-sizing: border-box;
   box-sizing: border-box;

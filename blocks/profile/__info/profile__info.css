@@ -1,5 +1,8 @@
 .profile__info {
   margin-right: 18px;
+
+  width: 100%;
+  max-width: 295px;
 }
 
 

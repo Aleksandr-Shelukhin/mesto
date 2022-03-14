@@ -9,14 +9,14 @@
   <title>Mesto</title>
 </head>
 
-<body>
+<body class="body">
 
   <!-- page START -->
   <div class="page">
     <!-- header START -->
-    <div class="header">
+    <header class="header">
       <div class="header__logo"></div>
-    </div>
+    </header>
     <!-- header END -->
 
     <!-- main START -->
@@ -24,78 +24,91 @@
       <div class="container">
 
         <!-- profile START -->
-        <div class="profile">
+        <section class="profile">
           <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка пользователя">
           <div class="profile__info-wrapper">
             <div class="profile__info">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
               <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button class="profile__edit-button transition-on-hover"></button>
+            <button class="profile__edit-button transition-on-hover" type="button"></button>
           </div>
-          <button class="profile__add-button transition-on-hover"></button>
-        </div>
+          <button class="profile__add-button transition-on-hover" type="button"></button>
+        </section>
         <!-- profile END -->
 
         <!-- elements START -->
-        <ul class="elements">
+        <section class="elements">
+          <ul class="elements__list">
 
-          <!-- element 1 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-elbrus.jpg" alt="Фотография Эльбруса">
-            <div class="element__footer">
-              <h2 class="element__title">Эльбрус</h2>
-              <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+            <!-- element 1 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-elbrus.jpg" alt="Снежные горы в облаках">
+              <div class="element__footer">
+                <h2 class="element__title">Эльбрус</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-          <!-- element 2 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-ekaterinburg.jpg" alt="Фотография Екатеринбурга">
-            <div class="element__footer">
-              <h2 class="element__title">Екатеринбург</h2>
-              <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+            <!-- element 2 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-ekaterinburg.jpg" alt="Город на берегу пролива">
+              <div class="element__footer">
+                <h2 class="element__title">Екатеринбург</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-          <!-- element 3 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-kolomna.jpg" alt="Фотография Коломны">
-            <div class="element__footer">
-              <h2 class="element__title">Коломна</h2>
-             <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+            <!-- element 3 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-kolomna.jpg" alt="Церковь на берегу реки">
+              <div class="element__footer">
+                <h2 class="element__title">Коломна</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-            <!-- element 4 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-moskow.jpg" alt="Фотография Москвы">
-            <div class="element__footer">
-              <h2 class="element__title">Москва</h2>
-              <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+              <!-- element 4 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-moskow.jpg" alt="Собор на Красной площади">
+              <div class="element__footer">
+                <h2 class="element__title">Москва</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-          <!-- element 5 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-piter.jpg" alt="Фотография Санкт-Петербурга">
-            <div class="element__footer">
-              <h2 class="element__title">Санкт-Петербург</h2>
-             <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+            <!-- element 5 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-piter.jpg" alt="Александровская колонна. Вид из арки">
+              <div class="element__footer">
+                <h2 class="element__title">Санкт-Петербург</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-          <!-- element 6 -->
-          <li class="element">
-            <img class="element__image" src="./images/elements-image-vladivostok.jpg" alt="Фотография Владивостока">
-            <div class="element__footer">
-              <h2 class="element__title">Владивосток</h2>
-             <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
-            </div>
-          </li>
+            <!-- element 6 -->
+            <li class="element">
+              <img class="element__image" src="./images/elements-image-vladivostok.jpg" alt="Русский мост через пролив Босфор Восточный">
+              <div class="element__footer">
+                <h2 class="element__title">Владивосток</h2>
+                <button class="element__button" type="button">
+                  <img class="element__icon transition-on-hover" src="./images/heart-icon.svg" alt="Поставить лайк">
+                </button>
+              </div>
+            </li>
 
-
-        </ul>
+          </ul>
+        </section>
         <!-- elements END -->
 
       </div>
@@ -111,19 +124,19 @@
     <!-- popup START -->
       <div class="popup">
         <div class="popup__container">
-          <p class="popup__name">Редактировать профиль</p>
-          <form class="form">
-            <input id="nameInput" type="text" name="name" value="Жак-Ив Кусто" class="form__input">
-            <input id="jobInput" type="text" name="job" value="Исследователь океана" class="form__input">
-            <button type="submit" class="form__button transition-on-hover">Сохранить</button>
+          <h3 class="popup__name">Редактировать профиль</h3>
+          <form class="popup__form" name="profile">
+            <input id="nameInput" type="text" name="name" value="Жак-Ив Кусто" class="popup__form-input">
+            <input id="jobInput" type="text" name="job" value="Исследователь океана" class="popup__form-input">
+            <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
           </form>
-          <button class="popup__close-button transition-on-hover"></button>
+          <button type="button" class="popup__close-button transition-on-hover"></button>
         </div>
       </div>
     <!-- popup END -->
 
   </div> <!-- page END -->
-  <script src="./scripts/main.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
