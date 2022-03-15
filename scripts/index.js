@@ -9,16 +9,13 @@ let nameInput = formElement.querySelector('#nameInput');
 let jobInput = formElement.querySelector('#jobInput');
 let profileName = document.querySelector('.profile__title');
 let profileJob = document.querySelector('.profile__subtitle');
-let profileNameValue = profileName.textContent;
-let profileJobValue = profileJob.textContent;
 
-console.log(profileNameValue)
 
 function popupOpened() { // открытие попап
   popup.classList.add('popup_opened');
 
-  nameInput.value = profileNameValue;
-  jobInput.value = profileJobValue;
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 
 function popupClose() { // закрытие попап

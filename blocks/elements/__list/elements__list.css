@@ -11,21 +11,21 @@
 }
 
 @media screen and (max-width: 850px) {
-  .elements {
+  .elements__list {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
   }
 }
 
 @media screen and (max-width: 540px) {
-  .elements {
+  .elements__list {
     grid-template-columns: 282px;
     row-gap: 22px;
   }
 }
 
 @media screen and (max-width: 340px) {
-  .elements {
+  .elements__list {
     grid-template-columns: 1fr;
   }
 }
