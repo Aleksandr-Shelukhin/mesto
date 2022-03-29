@@ -1,7 +1,7 @@
 // popup
 //====================================
 
-let popup = document.querySelector('.popup');
+let popup = document.querySelector('#profilePopup');
 let editProfile = document.querySelector('.profile__edit-button');
 let popupCloseButton = document.querySelector('.popup__close-button');
 let formElement = document.querySelector('.popup__form');

@@ -116,8 +116,8 @@
     <!-- footer END -->
 
     <!-- popup START -->
-      <div class="popup">
-        <div class="popup__container">
+      <div class="popup" id="profilePopup">
+        <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Редактировать профиль</h3>
           <form class="popup__form" name="profile">
             <input id="nameInput" type="text" name="name" value="Жак-Ив Кусто" class="popup__form-input">
@@ -126,6 +126,29 @@
           </form>
           <button type="button" class="popup__close-button transition-on-hover"></button>
         </div>
+      </div>
+
+      <div class="popup" id="placePopup">
+        <div class="popup__container popup__container_includes_form">
+          <h3 class="popup__name">Новое место</h3>
+          <form class="popup__form" name="profile">
+            <input id="nameInput" type="text" name="name" value="Название" class="popup__form-input">
+            <input id="jobInput" type="text" name="job" value="Ссылка на картинку" class="popup__form-input">
+            <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
+          </form>
+          <button type="button" class="popup__close-button transition-on-hover"></button>
+        </div>
+      </div>
+
+      <div class="popup" id="galleryPopup">
+          <figure class="popup__figure">
+            <picture>
+              <img class="popup__image" src="./images/elements-image-elbrus.jpg" alt="Фотография горы">
+            </picture>
+            <figcaption class="popup__image-caption">Элбрус</figcaption>
+            <button type="button" class="popup__close-button transition-on-hover"></button>
+          </figure>
+
       </div>
     <!-- popup END -->
 
