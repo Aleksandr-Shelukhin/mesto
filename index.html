@@ -64,7 +64,7 @@
             <input id="jobInput" type="text" name="job" value="Исследователь океана" class="popup__form-input">
             <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
           </form>
-          <button type="button" class="popup__close-button transition-on-hover"></button>
+          <button type="button" class="popup__close-button transition-on-hover" id="profilePopupCloseButton"></button>
         </div>
       </div>
 
@@ -72,22 +72,27 @@
         <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Новое место</h3>
           <form class="popup__form" name="profile">
-            <input id="nameInput" type="text" name="name" value="Название" class="popup__form-input">
-            <input id="jobInput" type="text" name="link" value="Ссылка на картинку" class="popup__form-input">
+            <input id="placeInput" type="text" name="place" value="Название" class="popup__form-input">
+            <input id="linkInput" type="text" name="link" value="Ссылка на картинку" class="popup__form-input">
             <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
           </form>
-          <button type="button" class="popup__close-button transition-on-hover"></button>
+          <button type="button" class="popup__close-button transition-on-hover" id="placePopupCloseButton"></button>
         </div>
       </div>
 
+
+
       <div class="popup" id="galleryPopup">
+        <div class="popup__image-wrapper">
           <figure class="popup__figure">
             <picture>
               <img class="popup__image" src="./images/elements-image-elbrus.jpg" alt="Фотография горы">
             </picture>
             <figcaption class="popup__image-caption">Элбрус</figcaption>
-            <button type="button" class="popup__close-button transition-on-hover"></button>
           </figure>
+          <button type="button" class="popup__close-button transition-on-hover" id="galleryPopupCloseButton"></button>
+        </div>
+
 
       </div>
     <!-- popup END -->
