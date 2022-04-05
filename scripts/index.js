@@ -13,7 +13,7 @@ const popupImage = document.querySelector('.popup__image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
 //кнопки вызова попапов
-const editProfileButton = document.querySelector('.profile__edit-button');
+const profileEditButton = document.querySelector('.profile__edit-button');
 const addProfileButton = document.querySelector('.profile__add-button');
 const openGallery = document.querySelector('.element__image');
 
@@ -34,33 +34,6 @@ const placeCard = document.querySelector('.element');
 const elementList = document.querySelector('.elements__list');
 const elementTemplate = document.querySelector('.element-template').content;
 
-// Массив со стартовыми данными
-const renderCards = [
-  {
-    name: 'Эльбрус',
-    link: 'https://cdn.pixabay.com/photo/2021/01/29/12/27/mountain-5960840_960_720.jpg'
-  },
-  {
-    name: 'Екатеринбург',
-    link: 'https://cdn.pixabay.com/photo/2022/01/07/02/48/ekaterinburg-6920943_960_720.jpg'
-  },
-  {
-    name: 'Коломна',
-    link: 'https://cdn.pixabay.com/photo/2018/09/18/17/12/kolomna-3686685_960_720.jpg'
-  },
-  {
-    name: 'Москва',
-    link: 'https://cdn.pixabay.com/photo/2018/12/26/05/13/moscow-3895333_960_720.jpg'
-  },
-  {
-    name: 'Санкт-Петербург',
-    link: 'https://cdn.pixabay.com/photo/2021/12/29/19/02/peter-6902548_960_720.jpg'
-  },
-  {
-    name: 'Владивосток',
-    link: 'https://cdn.pixabay.com/photo/2014/08/29/03/34/bridge-430446_960_720.jpg'
-  }
-];
 
 // Функции
 //=============================================================
@@ -71,10 +44,25 @@ function openPopup(popupElement) {
 }
 //закрываем попап
 function closePopup(popupElement) {
-  popupElement.classList.remove('popup_opened');
+  popupElement.classList.add('popup_closed');
+  setTimeout(function(){
+    popupElement.classList.remove('popup_closed');
+    popupElement.classList.remove('popup_opened');
+  }, 280);
 }
 
+//Клонирование карточки из template
+//?   Анастасия, здравствуйте!
+//?   Я не понимаю какие еще данные можно вытащить в эту функцию из функций 86 и 155
+//?   Все слушатели привязаны к переменным, к которым я теряю доступ
+//?   вынося их в отдельную функцию.
+//?   Как я понял, сюда можно вынести только клонирование template
+//?   Буду признателен, если Вы поможете с этим разобраться
+function createCard(){
+  const elementItem = elementTemplate.cloneNode('true'); //создаем карточку из template
 
+  return elementItem;
+};
 
 //удаление карточки
 function deleteCard (evt){
@@ -82,7 +70,7 @@ function deleteCard (evt){
 };
 
 // Редактирование профиля
-function formSubmitHandlerProfile (evt) {
+function handlerSubmitProfileForm (evt) {
   evt.preventDefault();
 
   // передаем значение полей value в соответсвущие элементы
@@ -94,12 +82,11 @@ function formSubmitHandlerProfile (evt) {
 }
 
 
-
 // Добавление карточки
-function formSubmitHandlerPlace (evt) {
+function handlerSubmitPlaceForm (evt) {
   evt.preventDefault();
 
-  const elementItem = elementTemplate.cloneNode('true'); //создаем карточку из template
+  const elementItem = createCard()
   const elementImage = elementItem.querySelector('.element__image');
   const elementTitle = elementItem.querySelector('.element__title');
 
@@ -108,8 +95,8 @@ function formSubmitHandlerPlace (evt) {
   elementImage.setAttribute('src', linkInput.value);
   elementImage.setAttribute('alt', placeInput.value);
 
-  placeInput.value = 'Название';
-  linkInput.value = 'Ссылка на картинку';
+  placeInput.value = '';
+  linkInput.value = '';
 
   //функционал лайка
   elementItem.querySelector('.element__button_type_heart').addEventListener('click', function (evt) {
@@ -139,11 +126,11 @@ function formSubmitHandlerPlace (evt) {
 //=============================================================
 
 //Отправка форм
-profileForm.addEventListener('submit', formSubmitHandlerProfile);
-placeForm.addEventListener('submit', formSubmitHandlerPlace);
+profileForm.addEventListener('submit', handlerSubmitProfileForm);
+placeForm.addEventListener('submit', handlerSubmitPlaceForm);
 
 //открываем и закрываем попапы
-editProfileButton.addEventListener('click', function () {
+profileEditButton.addEventListener('click', function () {
   openPopup(profilePopup);
 });
 
@@ -163,9 +150,10 @@ galleryPopupCloseButton.addEventListener('click', function () {
   closePopup(galleryPopup);
 });
 
+
 // Добавляем на страницу карточки при загрузке
 renderCards.forEach(function (item) {
-  const elementItem = elementTemplate.cloneNode('true'); //создаем карточку из template
+  const elementItem = createCard()
   const elementTitle = elementItem.querySelector('.element__title');
   const elementImage = elementItem.querySelector('.element__image');
 
@@ -195,15 +183,3 @@ renderCards.forEach(function (item) {
 
   elementList.prepend(elementItem);
 });
-
-
-
-
-
-
-
-
-
-
-
-

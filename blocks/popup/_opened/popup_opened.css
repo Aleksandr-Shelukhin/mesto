@@ -11,7 +11,9 @@
 
   animation: fadein .3s linear;
   -webkit-animation: fadein .3s linear;
+
 }
+
 
 @keyframes fadein {
   from {

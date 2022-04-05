@@ -1,0 +1,13 @@
+.popup_closed {
+  animation: fadeout .3s linear;
+  -webkit-animation: fadeout .3s linear;
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
