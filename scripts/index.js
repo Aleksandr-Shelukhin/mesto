@@ -14,8 +14,8 @@ const popupImageCaption = document.querySelector('.popup__image-caption');
 
 //кнопки вызова попапов
 const profileEditButton = document.querySelector('.profile__edit-button');
-const addProfileButton = document.querySelector('.profile__add-button');
-const openGallery = document.querySelector('.element__image');
+const profileAddButton = document.querySelector('.profile__add-button');
+const galleryOpen = document.querySelector('.element__image');
 
 //форма профиля
 const profileForm = document.querySelector('#profilePopup');
@@ -44,25 +44,8 @@ function openPopup(popupElement) {
 }
 //закрываем попап
 function closePopup(popupElement) {
-  popupElement.classList.add('popup_closed');
-  setTimeout(function(){
-    popupElement.classList.remove('popup_closed');
-    popupElement.classList.remove('popup_opened');
-  }, 280);
+  popupElement.classList.remove('popup_opened');
 }
-
-//Клонирование карточки из template
-//?   Анастасия, здравствуйте!
-//?   Я не понимаю какие еще данные можно вытащить в эту функцию из функций 86 и 155
-//?   Все слушатели привязаны к переменным, к которым я теряю доступ
-//?   вынося их в отдельную функцию.
-//?   Как я понял, сюда можно вынести только клонирование template
-//?   Буду признателен, если Вы поможете с этим разобраться
-function createCard(){
-  const elementItem = elementTemplate.cloneNode('true'); //создаем карточку из template
-
-  return elementItem;
-};
 
 //удаление карточки
 function deleteCard (evt){
@@ -81,31 +64,18 @@ function handlerSubmitProfileForm (evt) {
   closePopup(profilePopup); // закрытие попап с профилем
 }
 
-
-// Добавление карточки
-function handlerSubmitPlaceForm (evt) {
-  evt.preventDefault();
-
-  const elementItem = createCard()
+//Собираем карточку
+function createCard(newCard){
+  const elementItem = elementTemplate.cloneNode('true'); //создаем карточку из template
   const elementImage = elementItem.querySelector('.element__image');
-  const elementTitle = elementItem.querySelector('.element__title');
 
-  //передаем данные из формы в соответствующие атрибуты
-  elementTitle.textContent = placeInput.value;
-  elementImage.setAttribute('src', linkInput.value);
-  elementImage.setAttribute('alt', placeInput.value);
-
-  placeInput.value = '';
-  linkInput.value = '';
-
+  elementItem.querySelector('.element__title').textContent = newCard.name;
   //функционал лайка
   elementItem.querySelector('.element__button_type_heart').addEventListener('click', function (evt) {
     evt.target.classList.toggle('element__button_active')
   });
-
-  //удаляем карточку
+   //удаляем карточку
   elementItem.querySelector('.element__button_type_trash').addEventListener('click', deleteCard);
-
   //передаем в попап ссылку на картинку и название картинки по клику на картинку в карточке
   elementImage.addEventListener('click', function(evt) {
     const nameImage = evt.target.alt;
@@ -117,9 +87,29 @@ function handlerSubmitPlaceForm (evt) {
     openPopup(galleryPopup);
   });
 
-  elementList.prepend(elementItem);
+  elementImage.alt = newCard.name;
+  elementImage.src = newCard.link;
+
+  return elementItem;
+};
+
+// Добавление карточки
+function handlerSubmitPlaceForm (evt) {
+  evt.preventDefault();
+
+  const addCard = {}; // создаем пустой объект
+  addCard.name = placeInput.value; // переносим данные из формы в объект
+  addCard.link = linkInput.value; // переносим данные из формы в объект
+
+  const elementItem = createCard(addCard); // передаем данные из объекта в собранную карточку
+
+  elementList.prepend(elementItem); // Добавляем в начало списка готовую карточку с данными из формы
 
   closePopup(placePopup); // закрытие попап
+
+  //Обнулять инпуты после закрытия модального окна.
+  placeInput.value = '';
+  linkInput.value = '';
 }
 
 // События
@@ -132,9 +122,13 @@ placeForm.addEventListener('submit', handlerSubmitPlaceForm);
 //открываем и закрываем попапы
 profileEditButton.addEventListener('click', function () {
   openPopup(profilePopup);
+
+  // передаем значение данных профиля в инпуты формы
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 });
 
-addProfileButton.addEventListener('click', function () {
+profileAddButton.addEventListener('click', function () {
   openPopup(placePopup);
 });
 
@@ -150,36 +144,8 @@ galleryPopupCloseButton.addEventListener('click', function () {
   closePopup(galleryPopup);
 });
 
-
 // Добавляем на страницу карточки при загрузке
 renderCards.forEach(function (item) {
-  const elementItem = createCard()
-  const elementTitle = elementItem.querySelector('.element__title');
-  const elementImage = elementItem.querySelector('.element__image');
-
-  //передаем данные из объекта в соответствующие атрибуты
-  elementTitle.textContent = item.name;
-  elementImage.setAttribute('src', item.link);
-  elementImage.setAttribute('alt', item.name);
-
-  //функционал лайка
-  elementItem.querySelector('.element__button_type_heart').addEventListener('click', function (evt) {
-    evt.target.classList.toggle('element__button_active')
-  });
-
-  //удаляем карточку
-  elementItem.querySelector('.element__button_type_trash').addEventListener('click', deleteCard);
-
-  //передаем в попап ссылку на картинку и название картинки по клику на картинку в карточке
-  elementImage.addEventListener('click', function(evt) {
-    const nameImage = evt.target.alt;
-    const linkImage = evt.target.src;
-
-    popupImageCaption.textContent = nameImage;
-    popupImage.src = linkImage;
-
-    openPopup(galleryPopup);
-  });
-
+  const elementItem = createCard(item)
   elementList.prepend(elementItem);
 });
