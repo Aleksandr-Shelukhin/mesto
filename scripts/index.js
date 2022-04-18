@@ -17,17 +17,18 @@ const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
 const galleryOpen = document.querySelector('.element__image');
 
+
 //форма профиля
 const profileForm = document.querySelector('#profilePopup');
-const nameInput = profileForm.querySelector('#nameInput');
-const jobInput = profileForm.querySelector('#jobInput');
+const nameInput = profileForm.querySelector('#name-input');
+const jobInput = profileForm.querySelector('#job-input');
 const profileName = document.querySelector('.profile__title');
 const profileJob = document.querySelector('.profile__subtitle');
 
 //форма карточки
 const placeForm = document.querySelector('#placePopup');
-const placeInput = placeForm.querySelector('#placeInput');
-const linkInput = placeForm.querySelector('#linkInput');
+const placeInput = placeForm.querySelector('#place-input');
+const linkInput = placeForm.querySelector('#link-input');
 
 //карточка
 const placeCard = document.querySelector('.element');

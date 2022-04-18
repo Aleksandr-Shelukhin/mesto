@@ -1,5 +1,5 @@
 .popup__form-input {
-  margin-bottom: 20px;
+  width: 100%;
   padding: 10px 0;
 
   font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
@@ -21,3 +21,5 @@
   outline: none;
 
 }
+
+
