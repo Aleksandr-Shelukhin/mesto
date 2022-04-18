@@ -47,6 +47,7 @@ function openPopup(popupElement) {
   document.addEventListener('keydown', function(evt) {
     if (evt.key === 'Escape' && popupElement.classList.contains('popup_opened')) {
       popupElement.classList.remove('popup_opened');
+      console.log(evt)
     }
 
   });
@@ -57,9 +58,6 @@ function openPopup(popupElement) {
     }
   });
 
-  /* popupContainer.addEventListener('click', function(evt) {
-    evt.stopPropagation;
-  }); */
 }
 
 //закрываем попап
