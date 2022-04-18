@@ -11,6 +11,7 @@ const galleryPopupCloseButton = document.querySelector('#galleryPopupCloseButton
 const popupCloseButton = document.querySelector('.popup__close-button');
 const popupImage = document.querySelector('.popup__image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
+const popupContainer = document.querySelector('.popup__container');
 
 //кнопки вызова попапов
 const profileEditButton = document.querySelector('.profile__edit-button');
@@ -42,7 +43,25 @@ const elementTemplate = document.querySelector('.element-template').content;
 //открываем попап
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+
+  document.addEventListener('keydown', function(evt) {
+    if (evt.key === 'Escape' && popupElement.classList.contains('popup_opened')) {
+      popupElement.classList.remove('popup_opened');
+    }
+
+  });
+
+  popupElement.addEventListener('click', function(evt) {
+    if (evt.target.classList.contains('popup_opened')) {
+      popupElement.classList.remove('popup_opened');
+    }
+  });
+
+  /* popupContainer.addEventListener('click', function(evt) {
+    evt.stopPropagation;
+  }); */
 }
+
 //закрываем попап
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
