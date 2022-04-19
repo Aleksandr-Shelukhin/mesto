@@ -4,6 +4,7 @@
 //попапы
 const profilePopup = document.querySelector('#profilePopup');
 const placePopup = document.querySelector('#placePopup');
+const popupSubmitButton = placePopup.querySelector('.popup__form-button');
 const galleryPopup = document.querySelector('#galleryPopup');
 const profilePopupCloseButton = document.querySelector('#profilePopupCloseButton');
 const placePopupCloseButton = document.querySelector('#placePopupCloseButton');
@@ -36,32 +37,39 @@ const placeCard = document.querySelector('.element');
 const elementList = document.querySelector('.elements__list');
 const elementTemplate = document.querySelector('.element-template').content;
 
-
 // Функции
 //=============================================================
+
+//закрывапем попап нажатием на Esc
+const handleEscapeDown = (evt) => {
+  if (evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+}
+
+//закрывапем попап нажатием на левую кнопку мышки
+const handleOverlayClick = (evt) => {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+}
 
 //открываем попап
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
 
-  document.addEventListener('keydown', function(evt) {
-    if (evt.key === 'Escape' && popupElement.classList.contains('popup_opened')) {
-      popupElement.classList.remove('popup_opened');
-      console.log(evt)
-    }
-
-  });
-
-  popupElement.addEventListener('click', function(evt) {
-    if (evt.target.classList.contains('popup_opened')) {
-      popupElement.classList.remove('popup_opened');
-    }
-  });
+  //вешаем слушатели на клик мыши и нажатие Esc
+  document.addEventListener('keydown', handleEscapeDown);
+  popupElement.addEventListener('click', handleOverlayClick);
 
 }
 
 //закрываем попап
 function closePopup(popupElement) {
+  document.removeEventListener('keydown', handleEscapeDown)
+
+  //elfkztv слушатели на клик мыши и нажатие Esc
+  popupElement.removeEventListener('click', handleOverlayClick)
   popupElement.classList.remove('popup_opened');
 }
 
@@ -71,7 +79,7 @@ function deleteCard (evt){
 };
 
 // Редактирование профиля
-function handlerSubmitProfileForm (evt) {
+function handleSubmitProfileForm (evt) {
   evt.preventDefault();
 
   // передаем значение полей value в соответсвущие элементы
@@ -101,6 +109,7 @@ function createCard(newCard){
 
     popupImageCaption.textContent = nameImage;
     popupImage.src = linkImage;
+    popupImage.alt = nameImage;
 
     openPopup(galleryPopup);
   });
@@ -112,7 +121,7 @@ function createCard(newCard){
 };
 
 // Добавление карточки
-function handlerSubmitPlaceForm (evt) {
+function handleSubmitPlaceForm (evt) {
   evt.preventDefault();
 
   const addCard = {}; // создаем пустой объект
@@ -126,27 +135,30 @@ function handlerSubmitPlaceForm (evt) {
   closePopup(placePopup); // закрытие попап
 
   //Обнулять инпуты после закрытия модального окна.
-  placeInput.value = '';
-  linkInput.value = '';
+  evt.target.reset();
+
 }
 
 // События
 //=============================================================
 
 //Отправка форм
-profileForm.addEventListener('submit', handlerSubmitProfileForm);
-placeForm.addEventListener('submit', handlerSubmitPlaceForm);
+profileForm.addEventListener('submit', handleSubmitProfileForm);
+placeForm.addEventListener('submit', handleSubmitPlaceForm);
 
 //открываем и закрываем попапы
 profileEditButton.addEventListener('click', function () {
-  openPopup(profilePopup);
-
   // передаем значение данных профиля в инпуты формы
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+
+  openPopup(profilePopup);
 });
 
 profileAddButton.addEventListener('click', function () {
+  //Блокируем кнопку отправки
+  disableButton(popupSubmitButton, validateSettings.inactiveButtonClass);
+
   openPopup(placePopup);
 });
 

@@ -62,12 +62,22 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, settingList) => {
   // Если есть хотя бы один невалидный инпут
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(settingList.inactiveButtonClass);
+    disableButton(buttonElement, settingList.inactiveButtonClass);
   } else {
     // иначе сделай кнопку активной
-    buttonElement.classList.remove(settingList.inactiveButtonClass);
+    enableButton(buttonElement, settingList.inactiveButtonClass);
   }
 };
+
+function disableButton(buttonElement, inactiveButtonState) {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(inactiveButtonState);
+}
+
+function enableButton(buttonElement, inactiveButtonState) {
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(inactiveButtonState);
+}
 
 
 const setEventListeners = (formElement, settingList) => {
