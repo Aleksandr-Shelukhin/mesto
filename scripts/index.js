@@ -66,10 +66,10 @@ function openPopup(popupElement) {
 
 //закрываем попап
 function closePopup(popupElement) {
+  //Удаляем слушатели на клик мыши и нажатие Esc
   document.removeEventListener('keydown', handleEscapeDown)
-
-  //elfkztv слушатели на клик мыши и нажатие Esc
   popupElement.removeEventListener('click', handleOverlayClick)
+
   popupElement.classList.remove('popup_opened');
 }
 
