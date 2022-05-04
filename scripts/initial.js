@@ -1,5 +1,5 @@
 // Массив со стартовыми данными
-const renderCards = [
+export const renderCards = [
   {
     name: 'Эльбрус',
     link: 'https://cdn.pixabay.com/photo/2021/01/29/12/27/mountain-5960840_960_720.jpg'
