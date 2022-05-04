@@ -1,4 +1,4 @@
-import {validateSettings, FormValidator} from './validate.js';
+import {validateSettings, FormValidator} from './formValidator .js';
 import {renderCards} from './initial.js';
 import {openPopup, closePopup} from './utils.js';
 import {Card} from './card.js';
@@ -92,8 +92,7 @@ profileEditButton.addEventListener('click', function () {
 
 profileAddButton.addEventListener('click', function () {
   //Блокируем кнопку отправки
-  const formValidator = new FormValidator(placeForm, validateSettings)
-  formValidator.disableButton();
+  placeFormValidator.disableButton();
   openPopup(placePopup);
 });
 

@@ -45,6 +45,7 @@ export class Card {
 
     // Заполняем карточку данными
     this._element.querySelector('.element__image').src = this._image;//ссылка на картинку
+    this._element.querySelector('.element__image').alt = this._text;//название места в alt
     this._element.querySelector('.element__title').textContent = this._text;//название места
 
 

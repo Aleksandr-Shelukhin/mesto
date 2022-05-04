@@ -114,8 +114,8 @@ export class FormValidator {
 
   enableValidation() {
     // Переберём коллекцию всех форм
-    this._formList.forEach((formElement) => {
-      formElement.addEventListener('submit', (evt) => {
+    this._formList.forEach(() => {
+      this._formElement.addEventListener('submit', (evt) => {
         evt.preventDefault();
       });
 
