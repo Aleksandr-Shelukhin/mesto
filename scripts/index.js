@@ -3,28 +3,19 @@ import {renderCards} from './initial.js';
 import {openPopup, closePopup} from './utils.js';
 import {Card} from './card.js';
 
-
 // Переменные
 //=============================================================
-
 //попапы
 const profilePopup = document.querySelector('#profilePopup');
 const placePopup = document.querySelector('#placePopup');
-const popupSubmitButton = placePopup.querySelector('.popup__form-button');
 const galleryPopup = document.querySelector('#galleryPopup');
 const profilePopupCloseButton = document.querySelector('#profilePopupCloseButton');
 const placePopupCloseButton = document.querySelector('#placePopupCloseButton');
 const galleryPopupCloseButton = document.querySelector('#galleryPopupCloseButton');
-const popupCloseButton = document.querySelector('.popup__close-button');
-const popupImage = document.querySelector('.popup__image');
-const popupImageCaption = document.querySelector('.popup__image-caption');
-const popupContainer = document.querySelector('.popup__container');
 
 //кнопки вызова попапов
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
-const galleryOpen = document.querySelector('.element__image');
-
 
 //форма профиля
 const profileForm = document.querySelector('#profilePopup');
@@ -39,10 +30,9 @@ const placeInput = placeForm.querySelector('#place-input');
 const linkInput = placeForm.querySelector('#link-input');
 
 //карточка
-const placeCard = document.querySelector('.element');
 const elementList = document.querySelector('.elements__list');
-const elementTemplate = document.querySelector('.element-template').content;
 
+//Экземпляры класса валидациии для каждой формы
 const placeFormValidator = new FormValidator(placeForm, validateSettings);
 const profileFormValidator = new FormValidator(profileForm, validateSettings);
 
@@ -51,8 +41,6 @@ profileFormValidator.enableValidation();
 
 // Функции
 //=============================================================
-
-
 
 // Редактирование профиля
 function handleSubmitProfileForm (evt) {
@@ -65,8 +53,6 @@ function handleSubmitProfileForm (evt) {
 
   closePopup(profilePopup); // закрытие попап с профилем
 }
-
-
 
 // Добавление карточки
 function handleSubmitPlaceForm (evt) {
@@ -87,7 +73,6 @@ function handleSubmitPlaceForm (evt) {
   evt.target.reset();
 
 }
-
 
 // События
 //=============================================================

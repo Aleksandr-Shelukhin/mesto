@@ -12,24 +12,24 @@ export class FormValidator {
   constructor(formElement, validateSettings) {
     this._formElement = formElement;
     this._formSelector = validateSettings.formSelector,
+    this._errorClass = validateSettings.errorClass,
     this._inputSelector = validateSettings.inputSelector,
     this._submitButtonSelector = validateSettings.submitButtonSelector,
     this._inactiveButtonClass = validateSettings.inactiveButtonClass,
     this._inputErrorClass = validateSettings.inputErrorClass,
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector)),
     this._formList = Array.from(this._formElement.querySelectorAll(this._formSelector)),
-    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector),
-    this._validateSettings = validateSettings
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector)
   }
 
     //Метод Добавляет отображение ошибки
-  _showInputError(inputElement) {
+  _showInputError(inputElement, errorMessage) {
      // Находим элемент ошибки внутри самой функции
-    const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
+     const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
 
-    inputElement.classList.add(this._inputErrorClass);
-    // Переданный параметр помещаем в span под полем ввода
-    errorElement.textContent = errorMessage;
+     inputElement.classList.add(this._inputErrorClass);
+     // Переданный параметр помещаем в span под полем ввода
+     errorElement.textContent = errorMessage;
     // Делаем красным цветом нижнюю границу поля
     errorElement.classList.add(this._errorClass);
   }
@@ -49,7 +49,7 @@ export class FormValidator {
   _isValid(inputElement) {
     if (!inputElement.validity.valid) {
       // Если поле не проходит валидацию, покажем ошибку
-      this._showInputError(inputElement);
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
       // Если проходит, скроем
       this._hideInputError(inputElement);
@@ -65,7 +65,7 @@ export class FormValidator {
     // Обход массива прекратится и вся функция
     // hasInvalidInput вернёт true
 
-    return !inputElement.validity.valid;
+      return !inputElement.validity.valid;
     });
   }
 
@@ -84,19 +84,19 @@ export class FormValidator {
   //Метод блокировки кнопки submit
   disableButton(){
     this._buttonElement.disabled = true;
-    this._buttonElement.classList.add(this._inactiveButtonState);
+    this._buttonElement.classList.add(this._inactiveButtonClass);
   }
 
   //Метод разблокировки кнопки submit
   _enableButton(){
     this._buttonElement.disabled = false;
-    this._buttonElement.classList.remove(this._inactiveButtonState);
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
   }
 
   //Метод со слушателями
   _setEventListeners() {
     // Вызовем toggleButtonState, чтобы не ждать ввода данных в поля
-    this._toggleButtonState(this._inputList, this._buttonElement, this._validateSettings);
+    this._toggleButtonState();
 
     // Обойдём все элементы полученной коллекции
     this._inputList.forEach((inputElement) => {
@@ -104,10 +104,10 @@ export class FormValidator {
       inputElement.addEventListener('input', () => {
         // Внутри колбэка вызовем isValid,
         // передав ей форму и проверяемый элемент
-        this._isValid(this._formElement, inputElement)
+        this._isValid(inputElement)
 
         // Вызоваем toggleButtonState и передаем ей массив полей и кнопку
-        this._toggleButtonState(this._inputList, this._buttonElement, this._validateSettings);
+        this._toggleButtonState();
       })
     });
   }
@@ -121,7 +121,7 @@ export class FormValidator {
 
     // Для каждой формы вызовем функцию setEventListeners,
     // передав ей элемент формы
-    this._setEventListeners(formElement, this._validateSettings);
+    this._setEventListeners();
   });
   }
 
