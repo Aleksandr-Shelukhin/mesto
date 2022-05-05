@@ -113,16 +113,13 @@ export class FormValidator {
   }
 
   enableValidation() {
-    // Переберём коллекцию всех форм
-    this._formList.forEach(() => {
-      this._formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-      });
+    //отменяем стандартное поведение у элемента
+    this._formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+    });
 
-    // Для каждой формы вызовем функцию setEventListeners,
-    // передав ей элемент формы
+    //вешаем слушатель проверки вводимых данных
     this._setEventListeners();
-  });
   }
 
 };
