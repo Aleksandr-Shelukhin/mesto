@@ -1,7 +1,7 @@
-import {validateSettings, FormValidator} from './formValidator .js';
-import {renderCards} from './initial.js';
-import {openPopup, closePopup} from './utils.js';
-import {Card} from './card.js';
+import {validateSettings, FormValidator} from '../components/formValidator.js';
+import {renderCards} from '../components/initial.js';
+import {openPopup, closePopup} from '../components/utils.js';
+import {Card} from '../components/card.js';
 
 // Переменные
 //=============================================================
