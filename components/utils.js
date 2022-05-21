@@ -9,7 +9,7 @@ const handleEscapeDown = (evt) => {
   }
 }
 
-//закрывапем попап нажатием на левую кнопку мышки
+// закрывапем попап нажатием на левую кнопку мышки
 const handleOverlayClick = (evt) => {
   if (evt.target.classList.contains('popup_opened')) {
     closePopup(evt.target);

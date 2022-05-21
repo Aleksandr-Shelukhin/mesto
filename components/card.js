@@ -1,11 +1,12 @@
 import {galleryPopup, popupImage, popupImageCaption, openPopup} from './utils.js';
 
-export class Card {
+export default class Card {
   //добавить в конструктор данные карточки
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._text = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   //Медод выполнит все операции, чтобы вернуть разметку
@@ -43,11 +44,12 @@ export class Card {
     this._element = this._getTemplate();//записываем в _element карточку клонированную из template
     this._setEventListeners();
 
+    this.cardImage = this._element.querySelector('.element__image')
+
     // Заполняем карточку данными
     this._element.querySelector('.element__image').src = this._image;//ссылка на картинку
     this._element.querySelector('.element__image').alt = this._text;//название места в alt
     this._element.querySelector('.element__title').textContent = this._text;//название места
-
 
     // Возвращаем заполненную данными карточку
     return this._element;
@@ -55,9 +57,9 @@ export class Card {
 
   //метод со слушателями
   _setEventListeners() {
-    this._element.querySelector('.element__button_type_heart').addEventListener('click', this._handleLike);//слушатель лайка
-    this._element.querySelector('.element__button_type_trash').addEventListener('click', this._deleteCard);//слушатель нажатия на корзину
-    this._element.querySelector('.element__image').addEventListener('click', this._openFullImage);// слушатель нажатия на картинку в карточке
+    this._element.querySelector('.element__button_type_heart').addEventListener('click', this._handleLike); //слушатель лайка
+    this._element.querySelector('.element__button_type_trash').addEventListener('click', this._deleteCard); //слушатель нажатия на корзину
+    this._element.querySelector('.element__image').addEventListener('click', this._openFullImage); // слушатель нажатия на картинку в карточке
 
   }
 }

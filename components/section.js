@@ -1,8 +1,9 @@
-export class Section { // отрисовка элементов на странице
-  constructor({items, renderer}, containerSelector) {
-    this._renderedItems = items;
-    this._container = document.querySelector(containerSelector);
+export default class Section { // отрисовка элементов на странице
+  constructor({data, renderer}, containerSelector) {
+    this._renderedItems = data;
     this._renderer = renderer;
+
+    this._container = document.querySelector(containerSelector);
   }
 
   renderItems() {
@@ -12,6 +13,6 @@ export class Section { // отрисовка элементов на стран�
   }
 
   addItem(element) {
-    this._container.append(element);
+    this._container.prepend(element);
   }
 }
