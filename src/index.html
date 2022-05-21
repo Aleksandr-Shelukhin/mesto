@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 
@@ -25,7 +24,7 @@
 
         <!-- profile START -->
         <section class="profile">
-          <img class="profile__avatar" src="./images/profile-avatar.jpg" alt="Аватарка пользователя">
+          <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватарка пользователя">
           <div class="profile__info-wrapper">
             <div class="profile__info">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -106,7 +105,7 @@
         <div class="popup__image-wrapper">
           <figure class="popup__figure">
             <picture>
-              <img class="popup__image" src="./images/elements-image-elbrus.jpg" alt="Фотография горы">
+              <img class="popup__image" src="<%=require('./images/elements-image-elbrus.jpg')%>" alt="Фотография горы">
             </picture>
             <figcaption class="popup__image-caption">Элбрус</figcaption>
           </figure>
@@ -133,7 +132,7 @@
     </template>
     <!-- template END-->
 
-  <script type="module" src="./pages/index.js"></script>
+  
 </body>
 
 </html>
