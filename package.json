@@ -1,7 +1,7 @@
 {
   "name": "mesto",
   "version": "1.0.0",
-  "description": "* О проекте\r * Технологии\r * Макет\r * GitHub Pages\r ___",
+  "description": "photo web-service",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "Aleksandr Shelukhin",
   "license": "ISC",
-  
+
   "devDependencies": {
     "@babel/core": "^7.18.0",
     "@babel/preset-env": "^7.18.0",
