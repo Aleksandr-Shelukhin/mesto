@@ -1,14 +1,5 @@
-//создаем объект с элементами DOM
-export const validateSettings = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__form-input',
-  submitButtonSelector: '.popup__form-button',
-  inactiveButtonClass: 'popup__form-button_inactive',
-  inputErrorClass: 'popup__form-input_type_error',
-  errorClass: 'popup__form-input-error_active'
-};
 
-export class FormValidator {
+export default class FormValidator {
   constructor(formElement, validateSettings) {
     this._formElement = formElement;
     this._formSelector = validateSettings.formSelector,
@@ -120,6 +111,12 @@ export class FormValidator {
 
     //вешаем слушатель проверки вводимых данных
     this._setEventListeners();
+  }
+
+  clearAllInputErrors () { // очищаем все ошибки в формах
+    this._inputList.forEach((input) => {
+      this._hideInputError(input);
+    });
   }
 
 };

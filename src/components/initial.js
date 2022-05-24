@@ -1,4 +1,13 @@
-// Массив со стартовыми данными
+// конфигурация переменных для валидации
+export const validateSettings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__form-input',
+  submitButtonSelector: '.popup__form-button',
+  inactiveButtonClass: 'popup__form-button_inactive',
+  inputErrorClass: 'popup__form-input_type_error',
+  errorClass: 'popup__form-input-error_active'
+};
+
 export const renderCards = [
   {
     name: 'Эльбрус',
@@ -25,3 +34,5 @@ export const renderCards = [
     link: 'https://cdn.pixabay.com/photo/2014/08/29/03/34/bridge-430446_960_720.jpg'
   }
 ];
+
+

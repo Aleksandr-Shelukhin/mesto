@@ -1,6 +1,6 @@
-import {validateSettings, FormValidator} from '../components/formValidator.js';
-import {renderCards} from '../components/initial.js';
+import { renderCards, validateSettings } from '../components/initial.js';
 import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -10,86 +10,98 @@ import './index.css';
 // Переменные
 //=============================================================
 //кнопки вызова попапов
-const profileEditButton = document.querySelector('.profile__edit-button');
-const profileAddButton = document.querySelector('.profile__add-button');
+const profilePopup = document.querySelector('#profilePopup');  // Попап редактирования профиля
+const profileEditForm = document.querySelector('.popup__form_type_profile');  // форма редактирования профиля
+const addPlaceForm = document.querySelector('.popup__form_type_place'); // форма добавления новой карты, для отслеживания Submit
+const profileEditButton = document.querySelector('.profile__edit-button');  // кнопка правки профиля
+const profileAddButton = document.querySelector('.profile__add-button');  // кнопка добавления новой карточки
 
-//форма профиля
-const profileForm = document.querySelector('#profilePopup');
-const nameInput = profileForm.querySelector('#name-input');
-const jobInput = profileForm.querySelector('#job-input');
-const profileName = document.querySelector('.profile__title');
-const profileJob = document.querySelector('.profile__subtitle');
-
-//форма карточки
-const placeForm = document.querySelector('#placePopup');
-const placeInput = placeForm.querySelector('#place-input');
-const linkInput = placeForm.querySelector('#link-input');
+// поля формы профиля
+const nameInput = profilePopup.querySelector('#name-input');
+const jobInput = profilePopup.querySelector('#job-input');
 
 //Экземпляры класса валидациии для каждой формы
-const placeFormValidator = new FormValidator(placeForm, validateSettings);
-const profileFormValidator = new FormValidator(profileForm, validateSettings);
+const placeFormValidator = new FormValidator(profileEditForm, validateSettings);
+const profileFormValidator = new FormValidator(addPlaceForm, validateSettings);
 
-placeFormValidator.enableValidation();
-profileFormValidator.enableValidation();
+placeFormValidator.enableValidation(); // включаем валидацию
+profileFormValidator.enableValidation(); // включаем валидацию
 
-
-//открываем и закрываем попапы
 profileEditButton.addEventListener('click', function () {
-  // передаем значение данных профиля в инпуты формы
-
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-
+  placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
+  profileFormValidator.disableButton(); // юлокируем кнопку сабмита
+  createProfileInfo(); // передаем данные профиля
   popupEditProfile.openPopup();
 });
 
 profileAddButton.addEventListener('click', function () {
-  //Блокируем кнопку отправки
-  placeFormValidator.disableButton();
+  profileFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
+  placeFormValidator.disableButton(); // юлокируем кнопку сабмита
   popupAddNewCard.openPopup();
 });
 
-const popupAddNewCard = new PopupWithForm('#placePopup', () => {
-    const addCard = {}; // создаем пустой объект
-    addCard.name = placeInput.value; // переносим данные из формы в объект
-    addCard.link = linkInput.value; // переносим данные из формы в объект
 
-    const card = new Card(addCard, '.element-template');
-    const cardElement = card.generateCard();
+const popupEditProfile = new PopupWithForm('#profilePopup', {
+  formSubmitter: (userInfo) => {
+    user.setUserInfo(userInfo);
+    popupEditProfile.closePopup();
+    placeFormValidator.disableButton();
+  }
+});
 
-    cardList.addItem(cardElement) // Добавляем в начало списка готовую карточку с данными из формы
+const popupAddNewCard = new PopupWithForm('#placePopup', {
+  formSubmitter: (cardInfo) => {
+    const cardElement = renderNewCard({
+      name: cardInfo['place'],
+      link: cardInfo['link']
+    }, '.element-template', popupFullImage.openPopup.bind(popupFullImage));
 
-    popupAddNewCard.closePopup()
-
-})
+    cardsList.addItem(cardElement);
+    popupAddNewCard.closePopup();
+    profileFormValidator.disableButton();
+  }
+});
 
 const popupFullImage = new PopupWithImage('#galleryPopup');
 
-const popupEditProfile = new PopupWithForm('#profilePopup', (userData) => {
-    userInfo.setUserInfo(userData);
-    popupEditProfile.closePopup(); // закрытие попап с профилем
-
-})
-
-const userInfo = new UserInfo ({
+const user = new UserInfo({
   selectorProfileName: '.profile__title',
   selectorProfileJob: '.profile__subtitle'
-})
+});
 
-popupFullImage.setEventListeners();
-popupAddNewCard.setEventListeners();
+function createProfileInfo() {
+  const userInfo = user.getUserInfo();
+  nameInput.value = userInfo.name;
+  jobInput.value = userInfo.prof;
+}
+
+
+function renderNewCard(card, templateSelector, imagePopupFunction) {
+  const newCard = new Card(card, templateSelector, imagePopupFunction);
+  const cardElement = newCard.generateCard(); // вызываем функцию создания узла;
+  return cardElement;
+}
+
+const cardsList = new Section({
+  items: renderCards,
+  renderer: (cardItem) => {
+    const cardElement = renderNewCard(cardItem, '.element-template', popupFullImage.openPopup.bind(popupFullImage));
+    cardsList.addItem(cardElement);
+  },
+},
+  '.elements__list'
+);
+
+cardsList.renderItems();
+
 popupEditProfile.setEventListeners();
+popupAddNewCard.setEventListeners();
+popupFullImage.setEventListeners();
 
 
-const cardList = new Section({
-  data: renderCards,
-  renderer: (item) => {
-    const card = new Card(item, '.element-template'); // Создадим экземпляр карточки
-    const cardElement = card.generateCard(); // Создаём карточку
-    cardList.addItem(cardElement)
-  }
 
-}, '.elements__list')
 
-cardList.renderItems();
+
+
+
 

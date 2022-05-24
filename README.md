@@ -28,3 +28,5 @@ ___
 
 **GitHub Pages**
 * [Ссылка на готовую страницу](https://aleksandr-shelukhin.github.io/mesto/)
+
+**Автор проекта:**  Александр Шелухин

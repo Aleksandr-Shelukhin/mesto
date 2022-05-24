@@ -24,7 +24,7 @@
 
         <!-- profile START -->
         <section class="profile">
-          <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватарка пользователя">
+          <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg)%>" alt="Аватарка пользователя">
           <div class="profile__info-wrapper">
             <div class="profile__info">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -58,7 +58,7 @@
       <div class="popup popup_type_form" id="profilePopup">
         <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Редактировать профиль</h3>
-          <form class="popup__form" name="profile" novalidate>
+          <form class="popup__form popup__form_type_profile" name="profile" novalidate>
 
             <label class="popup__form-field" for="name-input">
               <input id="name-input" type="text" name="name" placeholder="Имя" minlength="2" maxlength="40" required class="popup__form-input">
@@ -80,7 +80,7 @@
       <div class="popup popup_type_form" id="placePopup">
         <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Новое место</h3>
-          <form class="popup__form" name="place" novalidate>
+          <form class="popup__form popup__form_type_place" name="place" novalidate>
 
             <label class="popup__form-field" for="place-input">
               <input id="place-input" type="text" name="place" placeholder="Название" minlength="2" maxlength="30" required class="popup__form-input">
@@ -105,7 +105,7 @@
         <div class="popup__image-wrapper">
           <figure class="popup__figure">
             <picture>
-              <img class="popup__image" src="<%=require('./images/elements-image-elbrus.jpg')%>" alt="Фотография горы">
+              <img class="popup__image" src="<%=require('./images/elements-image-elbrus.jpg)%>" alt="Фотография горы">
             </picture>
             <figcaption class="popup__image-caption">Элбрус</figcaption>
           </figure>
@@ -132,7 +132,7 @@
     </template>
     <!-- template END-->
 
-  
+
 </body>
 
 </html>
