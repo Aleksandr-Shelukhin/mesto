@@ -28,18 +28,16 @@ placeFormValidator.enableValidation(); // включаем валидацию
 profileFormValidator.enableValidation(); // включаем валидацию
 
 profileEditButton.addEventListener('click', function () {
-  placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
+  profileFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
   createProfileInfo(); // передаем данные профиля
   profileFormValidator.disableButton();
   popupEditProfile.openPopup();
-  console.log(placeFormValidator);
 });
 
 profileAddButton.addEventListener('click', function () {
-  profileFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
+  placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
   placeFormValidator.disableButton();
   popupAddNewCard.openPopup();
-  console.log(placeFormValidator);
 });
 
 
