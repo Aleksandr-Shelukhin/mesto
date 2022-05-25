@@ -21,23 +21,25 @@ const nameInput = profilePopup.querySelector('#name-input');
 const jobInput = profilePopup.querySelector('#job-input');
 
 //Экземпляры класса валидациии для каждой формы
-const placeFormValidator = new FormValidator(profileEditForm, validateSettings);
-const profileFormValidator = new FormValidator(addPlaceForm, validateSettings);
+const placeFormValidator = new FormValidator(addPlaceForm, validateSettings);
+const profileFormValidator = new FormValidator(profileEditForm, validateSettings);
 
 placeFormValidator.enableValidation(); // включаем валидацию
 profileFormValidator.enableValidation(); // включаем валидацию
 
 profileEditButton.addEventListener('click', function () {
   placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
-
   createProfileInfo(); // передаем данные профиля
+  profileFormValidator.disableButton();
   popupEditProfile.openPopup();
+  console.log(placeFormValidator);
 });
 
 profileAddButton.addEventListener('click', function () {
   profileFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
-
+  placeFormValidator.disableButton();
   popupAddNewCard.openPopup();
+  console.log(placeFormValidator);
 });
 
 
@@ -45,7 +47,6 @@ const popupEditProfile = new PopupWithForm('#profilePopup', {
   formSubmitter: (userInfo) => {
     user.setUserInfo(userInfo);
     popupEditProfile.closePopup();
-    placeFormValidator.disableButton();
   }
 });
 
@@ -58,7 +59,6 @@ const popupAddNewCard = new PopupWithForm('#placePopup', {
 
     cardsList.addItem(cardElement);
     popupAddNewCard.closePopup();
-    profileFormValidator.disableButton();
   }
 });
 
