@@ -29,14 +29,14 @@ profileFormValidator.enableValidation(); // включаем валидацию
 
 profileEditButton.addEventListener('click', function () {
   placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
-  profileFormValidator.disableButton(); // юлокируем кнопку сабмита
+
   createProfileInfo(); // передаем данные профиля
   popupEditProfile.openPopup();
 });
 
 profileAddButton.addEventListener('click', function () {
   profileFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
-  placeFormValidator.disableButton(); // юлокируем кнопку сабмита
+
   popupAddNewCard.openPopup();
 });
 

@@ -24,7 +24,7 @@ export default class Popup {
 
   _handleOverlayClick = (evt) => { // метод закрытия попап нажатием на левую кнопку мышки
     if (evt.target.classList.contains('popup_opened')) {
-      this.closePopup(evt.target);
+      this.closePopup();
     }
   }
   setEventListeners() { // метод закрытия попап по нажатию на кнопку закрытия и на темную область
