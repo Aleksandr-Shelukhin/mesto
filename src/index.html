@@ -24,7 +24,10 @@
 
         <!-- profile START -->
         <section class="profile">
-          <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватарка пользователя">
+          <div class="profile__avatar-wrapper">
+            <div class="profile__avatar-edit-icon"></div>
+            <img class="profile__avatar" src="<%=require('./images/profile-avatar.jpg')%>" alt="Аватарка пользователя">
+           </div>
           <div class="profile__info-wrapper">
             <div class="profile__info">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -54,7 +57,9 @@
     </footer>
     <!-- footer END -->
 
-    <!-- popup START -->
+    <!-- popups START -->
+
+      <!-- Edit profile -->
       <div class="popup popup_type_form" id="profilePopup">
         <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Редактировать профиль</h3>
@@ -77,6 +82,24 @@
         </div>
       </div>
 
+      <!-- Edit profile avatar -->
+      <div class="popup popup_type_form" id="profileAvatarEditPopup">
+        <div class="popup__container popup__container_includes_form">
+          <h3 class="popup__name">Обновить аватар</h3>
+          <form class="popup__form popup__form_type_place" name="place" novalidate>
+            <label class="popup__form-field" for="avatar-link-input">
+              <input id="avatar-link-input" type="url" name="avatar-link" placeholder="Ссылка на аватар" required class="popup__form-input">
+              <span class="avatar-link-input-error popup__form-input-error"></span>
+            </label>
+
+            <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
+
+          </form>
+          <button type="button" class="popup__close-button transition-on-hover" id="placePopupCloseButton"></button>
+        </div>
+      </div>
+
+      <!-- Add new card -->
       <div class="popup popup_type_form" id="placePopup">
         <div class="popup__container popup__container_includes_form">
           <h3 class="popup__name">Новое место</h3>
@@ -99,8 +122,18 @@
         </div>
       </div>
 
+      <!-- Confirm delete card-->
+      <div class="popup popup_type_form" id="confirmPopup">
+        <div class="popup__container popup__container_includes_form">
+          <h3 class="popup__name popup__name_type_confirm">Вы уверены?</h3>
+          <form class="popup__form popup__form_type_confirm" name="confirm" novalidate>
+            <button type="submit" class="popup__form-button transition-on-hover">Сохранить</button>
+          </form>
+          <button type="button" class="popup__close-button popup__close-button transition-on-hover" id="placePopupCloseButton"></button>
+        </div>
+      </div>
 
-
+      <!-- Popap full image-->
       <div class="popup popup_type_image" id="galleryPopup">
         <div class="popup__image-wrapper">
           <figure class="popup__figure">
@@ -114,7 +147,7 @@
 
 
       </div>
-    <!-- popup END -->
+    <!-- popups END -->
 
   </div> <!-- page END -->
 
@@ -125,7 +158,10 @@
         <img class="element__image" src="/" alt="Снежные горы в облаках">
         <div class="element__footer">
           <h2 class="element__title"></h2>
-          <button class="element__button element__button_type_heart transition-on-hover" type="button"></button>
+          <div class="element__like-wrapper">
+            <button class="element__button element__button_type_heart transition-on-hover" type="button"></button>
+            <span class="element__like-counter">10</span>
+          </div>
         </div>
         <button class="element__button element__button_type_trash transition-on-hover" type="button"></button>
       </li>
