@@ -9,7 +9,7 @@
 .header__logo{background-image:url(images/logo.b893ada38d2b37fd0ead.svg);background-repeat:no-repeat;background-size:cover;height:33px;width:142px}@media screen and (max-width:540px){.header__logo{height:24px;width:104px}}
 .profile{align-items:center;display:flex;margin-top:40px}@media screen and (max-width:727px){.profile{flex-wrap:wrap;justify-content:center}}
 .profile__avatar-wrapper{margin-right:30px;position:relative}
-.profile__avatar-edit-icon{background-color:#000;background-image:url(images/avatar-edit-icon.a086f758840ae814ecde.svg);background-position:50%;background-repeat:no-repeat;border-radius:45%;height:100%;left:0;opacity:0;position:absolute;top:0;transition:opacity .2s linear;width:100%}.profile__avatar-edit-icon:hover{cursor:pointer;opacity:.8}
+.profile__avatar-edit-icon{background-color:#000;background-image:url(images/avatar-edit-icon.ae1a976ddb506239e9f0.svg);background-position:50%;background-repeat:no-repeat;border-radius:45%;height:100%;left:0;opacity:0;position:absolute;top:0;transition:opacity .2s linear;width:100%}.profile__avatar-edit-icon:hover{cursor:pointer;opacity:.8}
 .profile__avatar{border-radius:50%;height:120px;width:120px}@media screen and (max-width:540px){.profile__avatar{margin:0}}
 .profile__info-wrapper{display:flex;margin-right:20px}@media screen and (max-width:640px){.profile__info-wrapper{margin:0}}@media screen and (max-width:540px){.profile__info-wrapper{justify-content:center;margin-right:13px;margin-top:26px;width:100%}}@media screen and (max-width:320px){.profile__info-wrapper{justify-content:right}}
 .profile__info{margin-right:18px;max-width:295px;width:100%}@media screen and (max-width:399px){.profile__info{margin-right:10px;max-width:190px}}
@@ -24,6 +24,8 @@
 .element__footer{align-items:center;display:flex;justify-content:space-between;padding:25px 20px}
 .element__title{-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;color:var(--color-black);font-family:Inter,Arial,Helvetica,sans-serif;font-size:24px;font-weight:900;line-height:1.2;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .element__button{background:none;border:none;cursor:pointer;outline:none}
+.element__button_hidden{display:none}
+.element__button_visible{display:block}
 .element__button_type_heart{background-image:url(images/heart-icon.1340e764df50e6d7cc78.svg);background-repeat:no-repeat;background-size:cover;height:19px;min-width:22px;width:22px}
 .element__button_type_trash{background-image:url(images/trash-icon.14b15c82ba291cddc6ed.svg);background-repeat:no-repeat;background-size:cover;height:19px;min-width:18px;position:absolute;right:20px;top:20px;width:18px}
 .element__button_active{background-image:url(images/heart-icon-active.7d1e86040318b9040bd1.svg)}
