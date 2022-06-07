@@ -17,7 +17,7 @@ export default class PopupWithForm extends Popup {
     return data;
   }
 
-  setEventListeners() { 
+  setEventListeners() {
     super.setEventListeners();
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
@@ -28,5 +28,13 @@ export default class PopupWithForm extends Popup {
   closePopup() {
     super.closePopup();
     this._formElement.reset();
+  }
+
+  showLoadingProcess(isLoading) {
+    if (isLoading) {
+      this._formElement.querySelector('.popup__form-button').textContent = "Сохранение...";
+    } else {
+      this._formElement.querySelector('.popup__form-button').textContent = "Сохранить";
+    }
   }
 }
