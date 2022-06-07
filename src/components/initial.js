@@ -8,31 +8,5 @@ export const validateSettings = {
   errorClass: 'popup__form-input-error_active'
 };
 
-export const renderCards = [
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/arch'
-  },
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/animals'
-  },
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/people'
-  },
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/nature'
-  },
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/sepia'
-  },
-  {
-    name: 'Рендом',
-    link: 'http://placeimg.com/720/720/tech'
-  }
-];
 
 

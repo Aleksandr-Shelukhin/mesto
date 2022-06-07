@@ -1,4 +1,4 @@
-import { renderCards, validateSettings } from '../components/initial.js';
+import { validateSettings } from '../components/initial.js';
 import Card from '../components/Сard.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
@@ -13,11 +13,11 @@ import './index.css';
 //=============================================================
 //кнопки вызова попапов
 const profilePopup = document.querySelector('#profilePopup');  // Попап редактирования профиля
-const avatarForm = document.querySelector('#confirmPopup'); // форма добавления новой карты, для отслеживания Submit
+const avatarForm = document.querySelector('#profileAvatarEditPopup'); // форма добавления новой карты, для отслеживания Submit
 const profileEditForm = document.querySelector('.popup__form_type_profile');  // форма редактирования профиля
 const addPlaceForm = document.querySelector('.popup__form_type_place'); // форма добавления новой карты, для отслеживания Submit
 const profileEditButton = document.querySelector('.profile__edit-button');  // кнопка правки профиля
-const profileAddButton = document.querySelector('.profile__add-button');  // кнопка добавления новой карточки
+const placeAddButton = document.querySelector('.profile__add-button');  // кнопка добавления новой карточки
 const profileAvatar = document.querySelector('.profile__avatar-wrapper');  // кнопка добавления новой карточки
 
 // поля формы профиля
@@ -64,7 +64,7 @@ api.renderCards()
 
 
 function likeCardHandler(cardId, element, card) {
-  if (!element.querySelector('.element__button_type_heart').classList.contains('.element__button_active ')) {
+  if (!element.querySelector('.element__button_type_heart').classList.contains('element__button_active')) {
     api.addLike(cardId)
     .then((data) => {
       card.addLike(data.likes);
@@ -92,7 +92,7 @@ profileEditButton.addEventListener('click', function () { //слушатель �
   popupEditProfile.openPopup();
 });
 
-profileAddButton.addEventListener('click', function () { //слушатель добавления карточки
+placeAddButton.addEventListener('click', function () { //слушатель добавления карточки
   placeFormValidator.clearAllInputErrors(); // очищаем все поля с ошибками
   placeFormValidator.disableButton();
   popupAddNewCard.openPopup();
@@ -238,5 +238,3 @@ popupEditProfile.setEventListeners();
 popupAddNewCard.setEventListeners();
 popupFullImage.setEventListeners();
 popupReplaceAvatar.setEventListeners();
-
-//debugger

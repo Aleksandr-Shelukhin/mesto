@@ -62,7 +62,7 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: newInfo.name, //?проверить написания. Возможно нужно заменить
+        name: newInfo.name,
         about: newInfo.job
       }),
     }).then((res) => {
@@ -71,7 +71,6 @@ export default class Api {
   }
 
   addLike(cardId) { // ставим лайк
-    console.log(cardId);
     return fetch(
       `${this._dataBaseLink}/cards/${cardId}/likes`,
       {

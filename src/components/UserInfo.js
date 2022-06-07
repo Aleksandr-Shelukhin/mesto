@@ -13,7 +13,7 @@ export default class UserInfo {
 
   setUserInfo(userInfo) {
     this._profileName.textContent = userInfo.name;
-    this._profileJob.textContent = userInfo.job;
+    this._profileJob.textContent = userInfo.about;
   }
 
   newAvatar(newAvatar) {
