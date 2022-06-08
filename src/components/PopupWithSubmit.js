@@ -17,11 +17,11 @@ export default class PopupWithSubmit extends Popup {
     }
   }
 
-  openPopup(cardId, element, cardElement) {
+  open(cardId, element, cardElement) {
     this._currentCardId = cardId;
     this._currentElement = element;
-    this._cardElement= cardElement;
-    super.openPopup();
+    this._cardElement = cardElement;
+    super.open();
   }
 
   setEventListeners() {

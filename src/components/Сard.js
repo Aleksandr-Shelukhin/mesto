@@ -7,7 +7,7 @@ export default class Card {
     this.like = cardElement.likes;
     this._userId = userId;
     this._ownerId = cardElement.owner._id;
-
+    
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._handleLikeClick = handleLikeClick;
