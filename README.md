@@ -27,13 +27,22 @@ ___
 * Собственный Api
 * Разработка велась с использование Git, а так же с созданием отдельных веток для разделения работы над проектом на небольшие задачи.
 
-**Примеры** \
-![Добавление Аватарки](https://landing-easy.ru/images/special/Avatar.gif)&nbsp;
-![Редактировать профиль](https://landing-easy.ru/images/special/Profile.gif)&nbsp;
-![Добавление Карточки](https://landing-easy.ru/images/special/Place.gif)&nbsp;
-![Удаление Карточки](https://landing-easy.ru/images/special/Delete.gif)&nbsp;
+✔️ **Примеры** 
+* Обновить Аватар
+<img src="https://landing-easy.ru/images/special/avatar-ban.gif" alt="Обновить Аватар" width="500"/>
 
-⚙️ **Инструкция по развёртыванию и системные требования:** \
+* Редактировать профиль
+<img src="https://landing-easy.ru/images/special/profile-ban.gif" alt="Редактировать профиль" width="500"/>
+
+* Добавление Карточкии
+<img src="https://landing-easy.ru/images/special/place-ban.gif" alt="Добавление Карточкии" width="500"/>
+
+* Удаление Карточки
+<img src="https://landing-easy.ru/images/special/delete-ban.gif" alt="Удаление Карточки" width="500"/>
+
+___
+
+⚙️ **Инструкция по развёртыванию и системные требования:** 
 * Сборщик уже настроен. Достаточно клонировать репазиторий 
 ```sh
 $ git clone <адрес репазитория>
