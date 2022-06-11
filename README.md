@@ -27,6 +27,12 @@ ___
 * Собственный Api
 * Разработка велась с использование Git, а так же с созданием отдельных веток для разделения работы над проектом на небольшие задачи.
 
+**Примеры** \
+![Добавление Аватарки](https://landing-easy.ru/images/special/Avatar.gif)&nbsp;
+![Редактировать профиль](https://landing-easy.ru/images/special/Profile.gif)&nbsp;
+![Добавление Карточки](https://landing-easy.ru/images/special/Place.gif)&nbsp;
+![Удаление Карточки](https://landing-easy.ru/images/special/Delete.gif)&nbsp;
+
 ⚙️ **Инструкция по развёртыванию и системные требования:** \
 * Сборщик уже настроен. Достаточно клонировать репазиторий 
 ```sh
